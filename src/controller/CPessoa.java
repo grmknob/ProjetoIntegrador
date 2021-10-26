@@ -23,26 +23,24 @@ import model.Pessoa;
             this.pessoas.add(p);
         }
 
-        /**
-         * Método Mok somente para testes, não faz parte da aplicação final.
-         */
+
         public void mokPessoas() {
             Pessoa p1 = new Pessoa();
             p1.setIdPessoa(this.gerarId());
-            p1.setNomePessoa("Felispino");
+            p1.setNomePessoa("Romario");
             p1.setCpf("12312312312");
-            p1.setEndereco("Mario Quintana");
+            p1.setEndereco("Rua Mario Camelo");
             p1.setTelefone("51998998998");
-            p1.setIdade(39);
+            p1.setIdade(45);
             p1.setStatus(true);
             this.add(p1);
 
             Pessoa p2 = new Pessoa();
             p2.setIdPessoa(this.gerarId());
-            p2.setNomePessoa("Juvenal");
+            p2.setNomePessoa("Jorge");
             p2.setCpf("32132132132");
-            p2.setEndereco("Av. dos Estados");
-            p2.setIdade(35);
+            p2.setEndereco("Av. dos Elefantes");
+            p2.setIdade(29);
             p2.setTelefone("51988988988");
             p2.setStatus(false);
             this.add(p2);

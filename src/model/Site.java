@@ -5,7 +5,15 @@ public class Site {
     private int idSite;//PK
     private String url;
     private String nome;
-    private int idPessoa;//FK banco de dados
+    private int idPessoa;
+
+    public int getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(int idPessoa) {
+        this.idPessoa = idPessoa;
+    }
 
     public Site() {
     }
@@ -41,21 +49,12 @@ public class Site {
         this.nome = nome;
     }
 
-    public int getIdPessoa() {
-        return idPessoa;
-    }
-
-    public void setIdPessoa(int idPessoa) {
-        this.idPessoa = idPessoa;
-    }
-
     @Override
     public String toString() {
         return "Site{" +
                 "idSite=" + idSite +
                 ", url='" + url + '\'' +
                 ", nome='" + nome + '\'' +
-                ", idPessoa=" + idPessoa +
                 '}';
     }
 }

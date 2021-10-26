@@ -48,7 +48,7 @@ public class MProjeto {
     public static void menuC() {
         System.out.println("\n__ Cadastro de Site __");
         System.out.println("1 - Cadastrar Site");
-        System.out.println("2 - Atualizar Site");
+        System.out.println("2 - Atualizar URL");
         System.out.println("3 - Deletar Site");
         System.out.println("4 - Imprimir Sites");
         System.out.println("0 - Voltar");
@@ -118,9 +118,11 @@ public class MProjeto {
             if (cadPessoas.verStatusPes(cpf)) {
                 System.out.println("Status ativo, quer inativar esta Pessoa: 0-Sim | 1-Não");
                 status = ler.nextInt();
+                System.out.println("Concluído!");
             } else {
                 System.out.println("Status inativo, quer ativar esta Pessao: 1-Sim | 0-Não");
                 status = ler.nextInt();
+                System.out.println("Concluído!");
             }
             cadPessoas.alteraStatus(cpf, status);
         } else {
@@ -258,17 +260,16 @@ public class MProjeto {
             boolean verNome = false;
             String nome;
             do {
-                System.out.println("Informe o nome (DraculaNews...): ");
+                System.out.println("Informe o nome do Site: ");
                 nome = leTexto();
-                if (!verNome) {
+                verNome = cadSites.verNome(nome);
+                if (verNome) {
                     System.out.println("Informação inválida!");
                 }
-            } while (!verNome);
+            } while (verNome);
             s.setNome(nome);
             System.out.println("Informe a url do site: ");
             s.setUrl(leTexto());
-            System.out.println("Informe o nome: ");
-            s.setNome(leTexto());
             boolean cpfExiste = false;
             do {
                 System.out.print("Informe CPF do usuario: ");
@@ -311,7 +312,6 @@ public class MProjeto {
             if(cadSites.verNome(nomeUrl)){
                 Site site = cadSites.getByDoc(nomeUrl);
                 System.out.println("Deseja realmente excluir este site? "
-                        + "\nUsuario: " + cadPessoas.getNomePes(site.getIdPessoa())
                         + "\nUrl: " + site.getUrl()
                         + "\nNome: " + site.getNome()
                         + "\n1 (sim) / 2 (não)");
@@ -328,13 +328,12 @@ public class MProjeto {
         }
 
         public static void alterarSite(){
-            System.out.println("-- Atualiza Site --");
+            System.out.println("-- Atualizar URL --");
             System.out.println("Informe o nome do Site: ");
             String nome = leTexto();
             if(cadSites.verNome(nome)){
                 Site site = cadSites.getByDoc(nome);
-                System.out.println("Deseja atualizar este site? "
-                        + "\nUsuario: " + site.getNome()
+                System.out.println("Deseja atualizar a URL deste site? "
                         + "\nUrl: " + site.getUrl()
                         + "\nNome: " + site.getNome()
                         + "\n1 (sim) / 2 (não)");
@@ -344,7 +343,7 @@ public class MProjeto {
                     do{
                         System.out.println("Atualizaões: "
                                 + "\n1 - Url"
-                                + "\n2 - Usuario"
+                                + "\n0 - Sair"
                                 + "\nDigite uma opção: ");
                         int op = ler.nextInt();
                         switch (op){
@@ -365,6 +364,9 @@ public class MProjeto {
                                         System.out.println("CPF inválido!");
                                     }
                                 } while (!cpfPes);
+                                up = false;
+                                break;
+                            case 0:
                                 up = false;
                                 break;
                             default:
@@ -431,6 +433,7 @@ public class MProjeto {
                                 break;
                             case 2:
                                 alterarSite();
+                                break;
                             case 3:
                                 deletarSite();
                                 break;

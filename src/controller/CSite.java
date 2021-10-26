@@ -33,14 +33,14 @@ public class CSite implements InterfaceController<Site>{
         Site s1 = new Site();
         s1.setIdSite(this.gerarId());
         s1.setNome("G1");
-        s1.setUrl("");
+        s1.setUrl("https://g1.globo.com/saude/coronavirus/");
         s1.setIdPessoa(1);
         this.add(s1);
 
         Site s2 = new Site();
         s2.setIdSite(this.gerarId());
         s2.setNome("ZH");
-        s2.setUrl("");
+        s2.setUrl("https://gauchazh.clicrbs.com.br/ultimas-noticias/tag/coronavirus/");
         s2.setIdPessoa(2);
         this.add(s2);
     }

@@ -13,19 +13,8 @@ package model;
 
 
         public Pessoa(){
-            //Construtor vazio para usar os métodos acessores geters and seters
         }
 
-        /**
-         * Conntrutor com todos os atributos como parâmetro.
-         * @param idPessoa
-         * @param nomePessoa
-         * @param cpf
-         * @param endereco
-         * @param telefone
-         * @param idade
-         * @param status
-         */
         public Pessoa(int idPessoa, String nomePessoa, String cpf, String endereco, String telefone, int idade, boolean status) {
             this.idPessoa = idPessoa;
             this.nomePessoa = nomePessoa;
@@ -36,18 +25,11 @@ package model;
             this.status = status;
         }
 
-        /**
-         * Recupera o id da Pessoa
-         * @return
-         */
+
         public int getIdPessoa() {
             return idPessoa;
         }
 
-        /**
-         * Set o id da Pessoa
-         * @param idPessoa
-         */
         public void setIdPessoa(int idPessoa) {
             this.idPessoa = idPessoa;
         }
